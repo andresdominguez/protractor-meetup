@@ -61,6 +61,7 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
         var item = $scope.selectedMember;
         item.added = true;
         $scope.item.members.push(item);
+        $scope.selectedMember = null;
       };
 
       // Add a new album.
@@ -71,6 +72,7 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
         var item = $scope.selectedAlbum;
         item.added = true;
         $scope.item.albums.push(item);
+        $scope.selectedAlbum = null;
       };
 
       // Remove a member.

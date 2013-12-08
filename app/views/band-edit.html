@@ -61,10 +61,12 @@
           </li>
         </ul>
         <select data-ng-model="selectedAlbum"
-                data-ng-options="a.name for a in albums">
+                data-ng-options="a.name for a in getAlbums()">
           <option value="">-- Chose new member --</option>
         </select>
-        <button class="btn btn-small btn-primary" data-ng-click="addAlbum()">Add</button>
+        <button class="btn btn-small btn-primary"
+                data-ng-disabled="!selectedAlbum"
+                data-ng-click="addAlbum()">Add</button>
       </div>
     </div>
 

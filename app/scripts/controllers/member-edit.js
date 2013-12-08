@@ -16,8 +16,8 @@ angular.module('ProtractorMeetupApp')
       };
 
       // Delete the member.
-      $scope.delete = function() {
-        apiService.member.delete({id: memberId}, function() {
+      $scope['delete'] = function() {
+        apiService.member['delete']({id: memberId}, function() {
           $location.path('/member-list');
         }, handleError);
       };

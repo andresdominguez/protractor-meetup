@@ -30,8 +30,8 @@ angular.module('ProtractorMeetupApp').controller('AlbumEditCtrl',
         }
       };
 
-      $scope.delete = function() {
-        apiService.album.delete({id: albumId}, function() {
+      $scope['delete'] = function() {
+        apiService.album['delete']({id: albumId}, function() {
         }, handleError);
         $location.path('/album-list');
       };

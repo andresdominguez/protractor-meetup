@@ -26,17 +26,15 @@ Download and install http://nodejs.org/
 ~/dev/protractor-meetup$ npm install
 
 ### Run the server
-~/dev/protractor-meetup$ node server/server.js
+~/dev/protractor-meetup$ node server.js
 
 ### See the app
 Open your browser http://localhost:3000/
 
 ### Test
 
-Get Karma (you may need to use sudo)
+Run the protractor tests.
 
-npm install -g karma
-
-And then start Karma
+TODO
 
 ~/dev/protractor-meetup$ karma start

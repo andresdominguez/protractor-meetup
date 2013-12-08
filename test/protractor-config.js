@@ -1,4 +1,3 @@
-
 exports.config = {
 
   seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -14,9 +13,6 @@ exports.config = {
 
   baseUrl: 'http://localhost:3000',
 
-  rootElement: 'body',
-
-  // ----- Options to be passed to minijasminenode -----
   jasmineNodeOpts: {
     onComplete: null,
     isVerbose: false,

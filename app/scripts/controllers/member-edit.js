@@ -5,9 +5,7 @@ angular.module('ProtractorMeetupApp').controller('MemberEditCtrl',
   var memberId = $routeParams.memberId;
 
   if (memberId !== 'new') {
-    apiService.member.get({id: memberId}, function(data) {
-      $scope.item = data;
-    });
+    $scope.item = apiService.member.get({id: memberId});
   }
 
   var handleError = function(response) {
@@ -29,7 +27,8 @@ angular.module('ProtractorMeetupApp').controller('MemberEditCtrl',
 
     if (isNew) {
       apiService.member.save($scope.item, function(newItem) {
-        $location.path('/member-edit/' + newItem._id);
+        $scope.item = newItem;
+        $scope.message = 'Member created';
       }, handleError);
     } else {
       apiService.member.update({id: memberId}, _.omit(item, '_id'), function() {

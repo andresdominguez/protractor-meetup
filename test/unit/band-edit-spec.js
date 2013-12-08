@@ -166,5 +166,19 @@ describe('Controller: BandEditCtrl', function() {
       // And ensure the album list has one item.
       expect(scope.getAlbums().length).toBe(1);
     });
+
+    it('should remove album', function() {
+      // Given an album with one member.
+      var album = scope.albums[0];
+      scope.selectedAlbum = album;
+      scope.addAlbum();
+
+      // When you remove the album.
+      scope.removeAlbum(album);
+
+      // Then ensure the album was removed.
+      expect(scope.getAlbums().length).toBe(2);
+      expect(album.added).toBe(false);
+    });
   });
 });

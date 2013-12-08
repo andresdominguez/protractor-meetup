@@ -81,6 +81,7 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
 
       // Remove an album.
       $scope.removeAlbum = function(album) {
+        album.added = false;
         $scope.item.albums = _.without($scope.item.albums, album);
       };
     });

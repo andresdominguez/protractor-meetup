@@ -2,6 +2,7 @@
   "name": "protractor-meetup",
   "version": "0.0.1",
   "dependencies": {
-    "protractor": "~0.14.0"
+    "protractor": "~0.14.0",
+    "underscore": "~1.5.2"
   }
 }

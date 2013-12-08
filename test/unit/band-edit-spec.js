@@ -100,7 +100,7 @@ describe('Controller: BandEditCtrl', function() {
     expect(fake.band).toHaveBeenUpdated();
     expect(fake.band).toHaveBeenUpdatedWith({name: 'Bboys'});
   });
-  
+
   it('should get members', function() {
     createController(123);
 
@@ -112,36 +112,38 @@ describe('Controller: BandEditCtrl', function() {
     expect(scope.getMembers().length).toBe(3);
   });
 
-  it('should add member', function() {
-    // Given that you load an existing band.
-    createController(123);
-    fake.flush();
+  describe('Add / remove members', function() {
+    it('should add member', function() {
+      // Given that you load an existing band.
+      createController(123);
+      fake.flush();
 
-    // When you add a member.
-    scope.selectedMember = scope.members[0];
-    scope.addMember();
+      // When you add a member.
+      scope.selectedMember = scope.members[0];
+      scope.addMember();
 
-    // Then ensure the member was added.
-    expect(scope.item.members.length).toBe(1);
-    expect(scope.members[0].added).toBe(true);
+      // Then ensure the member was added.
+      expect(scope.item.members.length).toBe(1);
+      expect(scope.members[0].added).toBe(true);
 
-    // And ensure the member list has 2 items.
-    expect(scope.getMembers().length).toBe(2);
-  });
+      // And ensure the member list has 2 items.
+      expect(scope.getMembers().length).toBe(2);
+    });
 
-  it('should remove member', function() {
-    // Given a band with one member.
-    createController(123);
-    fake.flush();
-    var member = scope.members[0];
-    scope.selectedMember = member;
-    scope.addMember();
+    it('should remove member', function() {
+      // Given a band with one member.
+      createController(123);
+      fake.flush();
+      var member = scope.members[0];
+      scope.selectedMember = member;
+      scope.addMember();
 
-    // When you remove the member.
-    scope.removeMember(member);
+      // When you remove the member.
+      scope.removeMember(member);
 
-    // Then ensure the member was removed.
-    expect(scope.getMembers().length).toBe(3);
-    expect(member.added).toBe(false);
+      // Then ensure the member was removed.
+      expect(scope.getMembers().length).toBe(3);
+      expect(member.added).toBe(false);
+    });
   });
 });

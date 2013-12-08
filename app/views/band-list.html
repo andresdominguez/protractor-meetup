@@ -1,0 +1,21 @@
+<div class="hero-unit">
+  <h1>Band list</h1>
+
+  <p>This is the list of bands</p>
+</div>
+<div style="padding-left: 60px;">
+  <h2>List of bands</h2>
+
+  <ul class="unstyled">
+    <li ng-repeat="item in bandList">
+      <a href="#/band-edit/{{item._id}}">{{item.name}}</a>
+    </li>
+  </ul>
+
+  <div style="margin-top: 20px;">
+    <a href="#/band-edit/new" class="btn btn-primary" data-ng-click="createNewBand()">
+      Create a new band
+    </a>
+    <a  href="/" class="btn">Home</a>
+  </div>
+</div>

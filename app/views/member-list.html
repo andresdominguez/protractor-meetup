@@ -1,0 +1,16 @@
+<div>
+  <div class="hero-unit">
+    <h1>Member list</h1>
+  </div>
+  <div style="padding-left: 60px;">
+    <h2>Band members</h2>
+    <ul class="unstyled">
+      <li data-ng-repeat="item in list">
+        <a href="#/member-edit/{{item._id}}">{{item.name}}</a>
+      </li>
+    </ul>
+
+    <a  href="#/member-edit/new" class="btn btn-primary">Create new</a>
+    <a  href="/" class="btn">Home</a>
+  </div>
+</div>

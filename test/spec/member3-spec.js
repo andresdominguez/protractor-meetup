@@ -6,8 +6,11 @@ describe('Member', function() {
   var editPage = pages.member.edit,
       listPage = pages.member.list;
 
-  it('should create a new member', function() {
+  beforeEach(function() {
     listPage.navigate();
+  });
+
+  it('should create a new member', function() {
     listPage.createButton.click();
 
     editPage.name.sendKeys('New member');
@@ -18,8 +21,6 @@ describe('Member', function() {
   });
 
   it('should update existing member', function() {
-    listPage.navigate();
-
     // Create a new member.
     api.member.create({name: 'test member'}).then(function(id) {
       editPage.navigate(id);
@@ -33,7 +34,6 @@ describe('Member', function() {
   });
 
   it('should delete member', function() {
-    listPage.navigate();
     listPage.clickOnRow(0);
 
     var memberCount;

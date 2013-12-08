@@ -23,7 +23,6 @@ describe('Controller: MemberEditCtrl', function() {
     };
   }));
 
-
   it('should create a new member', function() {
     fake.member.whenCreate().returns({id: 1});
 

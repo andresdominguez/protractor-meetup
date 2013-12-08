@@ -1,8 +1,8 @@
 describe('Member', function() {
-  xit('should create a new member', function() {
+  it('should create a new member', function() {
     browser.get('#/member-list');
 
-    $('.btn-primary').click()
+    $('.btn-primary').click();
 
     element(by.model('item.name')).sendKeys('New member');
 
@@ -20,13 +20,19 @@ describe('Member', function() {
     browser.get('#/member-list');
 
     var list = element.all(by.repeater('item in list'));
+    list.get(0).findElement(by.css('a')).click();
 
-    list.get(0).then(function(row) {
-      return row.findElement(by.css('a'));
-    }).then(function(link) {
-          link.click();
-        })
+    // Get the name.
+    element(by.model('item.name')).getAttribute('value').then(function(name) {
+      return name + '_Updated';
+    }).then(function(updatedName) {
+      var field = element(by.model('item.name'));
+      field.clear();
+      field.sendKeys(updatedName);
+    });
 
-    browser.sleep(3000);
+    $('.btn-primary').click();
+
+    expect(element(by.binding('message')).getText()).toBe('Member updated');
   });
 });

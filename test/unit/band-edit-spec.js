@@ -25,13 +25,13 @@ describe('Controller: BandEditCtrl', function() {
     routeParams = $routeParams;
     theMocks = mocks;
     fake = fakeResource;
+
+    fake.album.whenGetList().returnsDefault();
+    fake.member.whenGetList().returnsDefault();
+    fake.band.whenGetById().returnsDefault();
   }));
 
   it('should load existing band', function() {
-    fake.band.whenGetById().returnsDefault();
-    fake.album.whenGetList().returnsDefault();
-    fake.member.whenGetList().returnsDefault();
-
     // Given that you load an exiting band.
     createController(123);
     expect(scope.item).toEqualData({});
@@ -53,8 +53,6 @@ describe('Controller: BandEditCtrl', function() {
   });
 
   it('should create new band', function() {
-    fake.album.whenGetList().returnsDefault();
-    fake.member.whenGetList().returnsDefault();
     fake.band.whenCreate().returns({
       id: 1,
       name: 'Beastie boys'
@@ -82,9 +80,6 @@ describe('Controller: BandEditCtrl', function() {
   });
 
   it('should update an existing band', function() {
-    fake.band.whenGetById().returnsDefault();
-    fake.album.whenGetList().returnsDefault();
-    fake.member.whenGetList().returnsDefault();
     fake.band.whenUpdate().returns();
 
     // Given that you load an existing band.
@@ -103,5 +98,29 @@ describe('Controller: BandEditCtrl', function() {
     // And ensure the band was updated.
     expect(fake.band).toHaveBeenUpdated();
     expect(fake.band).toHaveBeenUpdatedWith({name: 'Bboys'});
+  });
+  
+  it('should get members', function() {
+    createController(123);
+
+    // There are no members before response.
+    expect(scope.getMembers()).toEqualData([]);
+    fake.flush();
+
+    // Ensure there are members after response.
+    expect(scope.getMembers().length).toBe(3);
+  });
+
+  it('should add members', function() {
+    // Given that you load an existing band.
+    createController(123);
+    fake.flush();
+
+    // When you add a member.
+    scope.selectedMember = scope.members[0];
+    scope.addMember();
+
+    expect(scope.item.members.length).toBe(1);
+    expect(scope.members[0].added).toBe(true);
   });
 });

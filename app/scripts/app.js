@@ -1,4 +1,4 @@
-var app = angular.module('ProtractorMeetupApp', ['ngResource']);
+var app = angular.module('ProtractorMeetupApp', ['ngRoute', 'ngResource']);
 
 app.config(function($routeProvider) {
   $routeProvider

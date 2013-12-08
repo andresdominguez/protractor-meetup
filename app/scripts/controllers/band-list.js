@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMeetupApp').
+angular.module('ProtractorMeetupApp').
     controller('BandListCtrl', function($scope, apiService) {
       apiService.band.query(function(data) {
         $scope.bandList = data;

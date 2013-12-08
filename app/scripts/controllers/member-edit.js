@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMeetupApp')
+angular.module('ProtractorMeetupApp')
     .controller('MemberEditCtrl', function($scope, $routeParams, apiService, $location) {
 
       var memberId = $routeParams.memberId;

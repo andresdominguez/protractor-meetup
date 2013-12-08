@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMeetupApp').controller('AlbumEditCtrl',
+angular.module('ProtractorMeetupApp').controller('AlbumEditCtrl',
     function($scope, $routeParams, apiService, $location) {
       var albumId = $routeParams.albumId;
       if (albumId !== 'new') {

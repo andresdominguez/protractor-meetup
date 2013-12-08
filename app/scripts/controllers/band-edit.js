@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMeetupApp').controller('BandEditCtrl',
+angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
     function($scope, $routeParams, apiService, $location) {
       var bandId = $routeParams.bandId;
 

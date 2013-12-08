@@ -1,4 +1,4 @@
-angular.module('angularMeetupApp').
+angular.module('ProtractorMeetupApp').
     factory('apiService', function($resource) {
       var band = $resource('/bands/:id', {}, {
         update: {

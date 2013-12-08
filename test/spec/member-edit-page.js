@@ -15,4 +15,4 @@ MemberEditPage = function() {
   };
 };
 
-module.exports = MemberEditPage;
+module.exports = new MemberEditPage();

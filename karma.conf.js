@@ -15,16 +15,15 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'app/scripts/angular.js',
-      'app/scripts/angular-resource.js',
-      'app/scripts/angular-route.js',
-      'app/scripts/underscore.js',
+      'app/scripts/**/*.js',
       'test/unit/angular-mocks.js',
       'test/unit/controller-test-helper.js',
-      'app/scripts/**/*.js',
 //      'test/unit/**/*.js'
+//      'test/unit/*-spec.js',
       'test/unit/band-edit-phase1-spec.js',
       'test/unit/band-edit-phase2-spec.js',
-      'test/unit/band-edit-phase3-spec.js'
+      'test/unit/band-edit-phase3-spec.js',
+      'test/unit/band-edit-phase4-spec.js'
     ],
 
 

@@ -24,6 +24,12 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
         });
       };
 
+      $scope.getAlbums = function() {
+        return _.filter($scope.albums, function(item) {
+          return !item.added;
+        })
+      };
+
       $scope.saveBand = function() {
         $scope.message = '';
 
@@ -62,7 +68,9 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
         if (!$scope.item.albums) {
           $scope.item.albums = [];
         }
-        $scope.item.albums.push($scope.selectedAlbum);
+        var item = $scope.selectedAlbum;
+        item.added = true;
+        $scope.item.albums.push(item);
       };
 
       // Remove a member.

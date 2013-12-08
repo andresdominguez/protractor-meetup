@@ -113,11 +113,13 @@ describe('Controller: BandEditCtrl', function() {
   });
 
   describe('Add / remove members', function() {
-    it('should add member', function() {
-      // Given that you load an existing band.
+    beforeEach(function() {
+      // Load an existing band.
       createController(123);
       fake.flush();
+    });
 
+    it('should add member', function() {
       // When you add a member.
       scope.selectedMember = scope.members[0];
       scope.addMember();
@@ -132,8 +134,6 @@ describe('Controller: BandEditCtrl', function() {
 
     it('should remove member', function() {
       // Given a band with one member.
-      createController(123);
-      fake.flush();
       var member = scope.members[0];
       scope.selectedMember = member;
       scope.addMember();
@@ -144,6 +144,27 @@ describe('Controller: BandEditCtrl', function() {
       // Then ensure the member was removed.
       expect(scope.getMembers().length).toBe(3);
       expect(member.added).toBe(false);
+    });
+  });
+
+  describe('Add / remove albums', function() {
+    beforeEach(function() {
+      // Load an existing band.
+      createController(123);
+      fake.flush();
+    });
+
+    it('should add album', function() {
+      // When you add an album.
+      scope.selectedAlbum = scope.albums[0];
+      scope.addAlbum();
+
+      // Then ensure the album was added.
+      expect(scope.item.albums.length).toBe(1);
+      expect(scope.albums[0].added).toBe(true);
+
+      // And ensure the album list has one item.
+      expect(scope.getAlbums().length).toBe(1);
     });
   });
 });

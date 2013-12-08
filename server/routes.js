@@ -128,18 +128,10 @@ var populateDB = function() {
       name: 'Wu-Tang Clan',
       albums: [],
       members: []
-    },
-    {
-      name: 'The Police',
-      albums: [],
-      members: []
     }
   ];
 
   var members = [
-    {
-      name: 'Sting'
-    },
     {
       name: 'Method Man'
     },

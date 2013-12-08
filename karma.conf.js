@@ -18,15 +18,7 @@ module.exports = function(config) {
       'app/scripts/**/*.js',
       'test/unit/angular-mocks.js',
       'test/unit/controller-test-helper.js',
-//      'test/unit/**/*.js'
-//      'test/unit/*-spec.js',
-      'test/unit/band-edit-phase1-spec.js',
-      'test/unit/band-edit-phase2-spec.js',
-      'test/unit/band-edit-phase3-spec.js',
-      'test/unit/band-edit-phase4-spec.js',
-      'test/unit/band-list-spec.js',
-      'test/unit/album-edit-spec.js',
-      'test/unit/album-list-spec.js'
+      'test/unit/**/*.js'
     ],
 
 

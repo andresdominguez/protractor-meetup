@@ -60,6 +60,7 @@ describe('Controller: BandEditCtrl', function() {
 
     // Given that you load a new band.
     createController('new');
+    expect(scope.item).toBeDefined();
     fake.flush();
 
     // When you add a new band.
@@ -120,7 +121,11 @@ describe('Controller: BandEditCtrl', function() {
     scope.selectedMember = scope.members[0];
     scope.addMember();
 
+    // Then ensure the member was added.
     expect(scope.item.members.length).toBe(1);
     expect(scope.members[0].added).toBe(true);
+
+    // And ensure the member list has 2 items.
+    expect(scope.getMembers().length).toBe(2);
   });
 });

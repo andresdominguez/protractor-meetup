@@ -7,6 +7,7 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
       // Get members and albums.
       $scope.members = apiService.member.query();
       $scope.albums = apiService.album.query();
+      $scope.item = {};
 
       var handleError = function(response) {
         $scope.error = response.data;
@@ -16,6 +17,12 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
         $scope.item = apiService.band.get({id: bandId}, function() {
         }, handleError);
       }
+
+      $scope.getMembers = function() {
+        return _.filter($scope.members, function(item) {
+          return !item.added;
+        });
+      };
 
       $scope.saveBand = function() {
         $scope.message = '';
@@ -45,7 +52,9 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
         if (!$scope.item.members) {
           $scope.item.members = [];
         }
-        $scope.item.members.push($scope.selectedMember);
+        var item = $scope.selectedMember;
+        item.added = true;
+        $scope.item.members.push(item);
       };
 
       // Add a new album.

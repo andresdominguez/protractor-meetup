@@ -15,4 +15,4 @@ MemberListPage = function() {
   }
 };
 
-module.exports =  MemberListPage;
+module.exports = MemberListPage;

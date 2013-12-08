@@ -112,7 +112,7 @@ describe('Controller: BandEditCtrl', function() {
     expect(scope.getMembers().length).toBe(3);
   });
 
-  it('should add members', function() {
+  it('should add member', function() {
     // Given that you load an existing band.
     createController(123);
     fake.flush();
@@ -127,5 +127,21 @@ describe('Controller: BandEditCtrl', function() {
 
     // And ensure the member list has 2 items.
     expect(scope.getMembers().length).toBe(2);
+  });
+
+  it('should remove member', function() {
+    // Given a band with one member.
+    createController(123);
+    fake.flush();
+    var member = scope.members[0];
+    scope.selectedMember = member;
+    scope.addMember();
+
+    // When you remove the member.
+    scope.removeMember(member);
+
+    // Then ensure the member was removed.
+    expect(scope.getMembers().length).toBe(3);
+    expect(member.added).toBe(false);
   });
 });

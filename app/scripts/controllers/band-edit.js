@@ -67,6 +67,7 @@ angular.module('ProtractorMeetupApp').controller('BandEditCtrl',
 
       // Remove a member.
       $scope.removeMember = function(member) {
+        member.added = false;
         $scope.item.members = _.without($scope.item.members, member);
       };
 

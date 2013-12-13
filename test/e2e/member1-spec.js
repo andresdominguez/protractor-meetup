@@ -1,38 +1,26 @@
 describe('Member', function() {
   it('should create a new member', function() {
+    // Navigate to list page.
     browser.get('#/member-list');
 
-    $('.btn-primary').click();
+    // Click on the create button.
+    element(by.linkText('Create new')).click();
 
+    // Enter a name.
     element(by.model('item.name')).sendKeys('New member');
 
+    // Save.
     $('.btn-primary').click();
 
-    var idElement = element(by.model('item._id'));
-    expect(idElement.getAttribute('value')).toBeDefined();
-    idElement.getAttribute('value').then(function(value) {
-      console.log('value', value);
-    });
+    // Expect an id to be generated.
+    expect(element(by.model('item._id')).getAttribute('value')).toBeDefined();
+
+    // Expect a message to be shown.
     expect(element(by.binding('message')).getText()).toBe('Member created');
-  });
 
-  it('should update existing member', function() {
-    browser.get('#/member-list');
-
-    var list = element.all(by.repeater('item in list'));
-    list.get(0).findElement(by.css('a')).click();
-
-    // Get the name.
-    element(by.model('item.name')).getAttribute('value').then(function(name) {
-      return name + '_Updated';
-    }).then(function(updatedName) {
-      var field = element(by.model('item.name'));
-      field.clear();
-      field.sendKeys(updatedName);
+    // With a promise.
+    element(by.binding('message')).getText().then(function(text) {
+      console.log('The message is: ' + text);
     });
-
-    $('.btn-primary').click();
-
-    expect(element(by.binding('message')).getText()).toBe('Member updated');
   });
 });

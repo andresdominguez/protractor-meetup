@@ -13,11 +13,17 @@ exports.config = {
 
   baseUrl: 'http://localhost:3000',
 
+  onPrepare: function() {
+    // Override the timeout for webdriver.
+    var ptor = protractor.getInstance();
+    ptor.driver.manage().timeouts().setScriptTimeout(60000);
+  },
+
   jasmineNodeOpts: {
     onComplete: null,
     isVerbose: false,
     showColors: true,
     includeStackTrace: true,
-    defaultTimeoutInterval: 10000
+    defaultTimeoutInterval: 60000
   }
 };

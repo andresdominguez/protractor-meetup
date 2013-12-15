@@ -27,21 +27,25 @@ db.open(function(err, db) {
 
 bandApp.findAll = function(collectionName, req, res) {
   console.log('Find all', collectionName);
-  db.collection(collectionName, function(err, collection) {
-    collection.find().toArray(function(err, items) {
-      res.send(items);
+  setTimeout(function() {
+    db.collection(collectionName, function(err, collection) {
+      collection.find().toArray(function(err, items) {
+        res.send(items);
+      });
     });
-  });
+  }, 2000);
 };
 
 bandApp.findById = function(collectionName, req, res) {
   var id = req.params.id;
   console.log('Find by id', collectionName, id);
-  db.collection(collectionName, function(err, collection) {
-    collection.findOne({'_id': new BSON.ObjectID(id)}, function(err, item) {
-      res.send(item);
+  setTimeout(function() {
+    db.collection(collectionName, function(err, collection) {
+      collection.findOne({'_id': new BSON.ObjectID(id)}, function(err, item) {
+        res.send(item);
+      });
     });
-  });
+  }, 1000);
 };
 
 bandApp.createItem = function(collectionName, req, res) {

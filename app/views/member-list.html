@@ -4,6 +4,9 @@
   </div>
   <div style="padding-left: 60px;">
     <h2>Band members</h2>
+    <h4 data-ng-show="loading" class="alert-block alert-success">
+      Loading...
+    </h4>
     <ul class="unstyled">
       <li data-ng-repeat="item in list">
         <a href="#/member-edit/{{item._id}}">{{item.name}}</a>

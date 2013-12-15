@@ -3,7 +3,8 @@
     <h1>Band member</h1>
   </div>
   <div style="padding-left: 60px;">
-    <form class="form-horizontal">
+    <h4 data-ng-show="loading" class="alert-block alert-success">Loading</h4>
+    <form class="form-horizontal" ng-hide="loading">
       <legend>Edit band member</legend>
 
       <h4 data-ng-show="error" data-ng-bind="error" class="alert-block alert-error"></h4>

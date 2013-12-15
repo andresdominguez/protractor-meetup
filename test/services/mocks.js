@@ -31,7 +31,7 @@ angular.module('ProtractorMeetupApp').factory('mocks', function() {
     },
     member: {
       getById: function() {
-        return {name: 'Method Man'};
+        return {_id: '123', name: 'Method Man'};
       },
       getList: function() {
         return [

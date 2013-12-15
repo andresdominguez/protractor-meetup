@@ -3,9 +3,15 @@
 angular.module('ProtractorMeetupApp').controller('MemberEditCtrl',
     function($scope, $routeParams, apiService, $location) {
   var memberId = $routeParams.memberId;
+  $scope.loading = true;
 
-  if (memberId !== 'new') {
-    $scope.item = apiService.member.get({id: memberId});
+  if (memberId === 'new') {
+    $scope.item = {};
+    $scope.loading = false;
+  } else {
+    $scope.item = apiService.member.get({id: memberId}, function() {
+      $scope.loading = false;
+    });
   }
 
   var handleError = function(response) {
@@ -22,7 +28,7 @@ angular.module('ProtractorMeetupApp').controller('MemberEditCtrl',
   $scope.save = function() {
     $scope.message = '';
 
-    var isNew = memberId === 'new',
+    var isNew = !$scope.item._id,
         item = angular.copy($scope.item);
 
     if (isNew) {
@@ -31,7 +37,8 @@ angular.module('ProtractorMeetupApp').controller('MemberEditCtrl',
         $scope.message = 'Member created';
       }, handleError);
     } else {
-      apiService.member.update({id: memberId}, _.omit(item, '_id'), function() {
+      var params = {id: item._id};
+      apiService.member.update(params, _.omit(item, '_id'), function() {
         $scope.message = 'Member updated';
       }, handleError);
     }

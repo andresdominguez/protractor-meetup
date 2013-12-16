@@ -1,7 +1,7 @@
-protractor-meetup
-=================
+Sample application for the Protractor meetup
+============================================
 
-Sample angular application that has protractor integration tests
+This is a sample angular application that has protractor integration tests.
 
 Here are the instructions to run the code from the meetup.
 

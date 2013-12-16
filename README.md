@@ -1,5 +1,5 @@
-Sample application for the Protractor meetup
-============================================
+Sample application for the Angular meetup
+=========================================
 
 This is a sample angular application that has protractor integration tests.
 

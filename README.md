@@ -51,6 +51,14 @@ You should be able to see the app in the following URL:
 [http://localhost:3000/](http://localhost:3000/)
 
 ### Test
+
+Start the selenium standalone server
+
+```
+./node_modules/protractor/bin/webdriver-manager update
+./node_modules/protractor/bin/webdriver-manager start
+```
+
 Run the protractor tests.
 
 ```

@@ -15,7 +15,7 @@
     "karma-script-launcher": "~0.1.0",
     "mongodb": "^1.4.7",
     "morgan": "^1.1.1",
-    "protractor": "~0.14.0",
+    "protractor": "^1.0.0-rc4",
     "requirejs": "~2.1.9",
     "underscore": "~1.5.2"
   }

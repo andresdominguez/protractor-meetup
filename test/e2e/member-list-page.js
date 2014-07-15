@@ -11,7 +11,7 @@ MemberListPage = function() {
 
   this.clickOnRow = function(index) {
     var list = element.all(by.repeater('item in list'));
-    list.get(index).findElement(by.css('a')).click();
+    list.get(index).element(by.css('a')).click();
   }
 };
 

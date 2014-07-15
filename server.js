@@ -1,12 +1,10 @@
+var bodyParser = require('body-parser');
 var express = require('express'),
     bandService = require('./server/routes'),
     app = express();
 
-app.configure(function() {
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.static(__dirname + '/app'));
-});
+app.use(bodyParser());
+app.use(express.static(__dirname + '/app'));
 
 app.get('/bands', bandService.findAllBands);
 app.get('/bands/:id', bandService.findBandById);
